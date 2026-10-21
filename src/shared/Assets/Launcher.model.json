@@ -1,0 +1,686 @@
+{
+	"ClassName": "Model",
+	"Children": [
+		{
+			"Name": "Root",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.2, 0.2, 0.2],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 0.0],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Transparency": 1,
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": false
+			},
+			"Children": [
+				{
+					"Name": "Muzzle",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [0.0, 0.0, -2.46],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				},
+				{
+					"Name": "ShoulderMount",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [0.0, -0.78, 0.45],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				},
+				{
+					"Name": "RightGrip",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [0.0, -0.8, -0.41],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				},
+				{
+					"Name": "LeftGrip",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [0.0, -0.76, -1.37],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				},
+				{
+					"Name": "RightElbowPole",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [1.6, -2.4, 0.6],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				},
+				{
+					"Name": "LeftElbowPole",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [-1.6, -2.2, -0.4],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"Name": "Tube",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [4.4, 0.68, 0.68],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -0.2],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.29, 0.33, 0.21],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "FrontBell",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.36, 0.84, 0.84],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -2.24],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.2, 0.23, 0.15],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "FrontBore",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.56, 0.56],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -2.42],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "RearBell",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.5, 0.9, 0.9],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 1.78],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.2, 0.23, 0.15],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "RearBore",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.6, 0.6],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 2.03],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "BandFront",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.12, 0.74, 0.74],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -1.0],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.2, 0.23, 0.15],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "BandRear",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.12, 0.74, 0.74],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 0.9],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.2, 0.23, 0.15],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "WarningStripe",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.08, 0.7, 0.7],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 1.38],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.62, 0.56, 0.42],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "FireControl",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.24, 0.2, 0.8],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.42, -0.55],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "RearGrip",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.2, 0.56, 0.26],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.76, -0.42],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 0.970296, 0.241922],
+							[0.0, -0.241922, 0.970296]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "TriggerGuard",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.06, 0.06, 0.36],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.66, -0.72],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Trigger",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.05, 0.16, 0.05],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.56, -0.68],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 0.984808, -0.173648],
+							[0.0, 0.173648, 0.984808]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "FrontGripMount",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.24, 0.16, 0.42],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.4, -1.4],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "FrontGrip",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.18, 0.5, 0.2],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.7, -1.37],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 0.990268, 0.139173],
+							[0.0, -0.139173, 0.990268]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "ShoulderPad",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.34, 0.12, 0.9],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, -0.39, 0.45],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "Fabric",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "SightArm",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.16, 0.08, 0.3],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.4, 0.08, -0.95],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Sight",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.24, 0.3, 0.62],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.56, 0.16, -0.97],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "SightLensFront",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.03, 0.18, 0.18],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.56, 0.18, -1.29],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.15, 0.35, 0.45],
+				"Material": "Glass",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "SightEyepiece",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.14, 0.16, 0.16],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.56, 0.18, -0.6],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "RailTop",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.12, 0.06, 1.6],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.36, -0.4],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		}
+	],
+	"Properties": {
+		"Attributes": {
+			"Attributes": {
+				"TorsoTwist": {
+					"Float64": 45.0
+				}
+			}
+		}
+	}
+}

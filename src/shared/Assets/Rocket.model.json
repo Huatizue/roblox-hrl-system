@@ -1,0 +1,515 @@
+{
+	"ClassName": "Model",
+	"Children": [
+		{
+			"Name": "Root",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.2, 0.2, 0.2],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 0.0],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Transparency": 1,
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": false
+			},
+			"Children": [
+				{
+					"Name": "Exhaust",
+					"ClassName": "Attachment",
+					"Properties": {
+						"CFrame": {
+							"CFrame": {
+								"position": [0.0, 0.0, 1.28],
+								"orientation": [
+									[1.0, 0.0, 0.0],
+									[0.0, 1.0, 0.0],
+									[0.0, 0.0, 1.0]
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"Name": "Body",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [1.9, 0.5, 0.5],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 0.05],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.86, 0.86, 0.88],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "Nose1",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.18, 0.46, 0.46],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -0.99],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.86, 0.86, 0.88],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "Nose2",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.16, 0.38, 0.38],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -1.16],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.86, 0.86, 0.88],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "Nose3",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.14, 0.28, 0.28],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -1.3],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.72, 0.12, 0.1],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "NoseTip",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.26, 0.26, 0.26],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -1.38],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.72, 0.12, 0.1],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Ball"
+			}
+		},
+		{
+			"Name": "WarheadBand",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.1, 0.52, 0.52],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, -0.62],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.72, 0.12, 0.1],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "MotorBand",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.06, 0.52, 0.52],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 0.55],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "Nozzle",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.24, 0.36, 0.36],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 1.11],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "NozzleThroat",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.02, 0.24, 0.24],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.0, 1.24],
+						"orientation": [
+							[0.0, 0.0, 1.0],
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0]
+						]
+					}
+				},
+				"Color": [0.05, 0.05, 0.05],
+				"Material": "SmoothPlastic",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth",
+				"Shape": "Cylinder"
+			}
+		},
+		{
+			"Name": "Fin0",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.34, 0.46],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.0, 0.4, 0.82],
+						"orientation": [
+							[1.0, 0.0, 0.0],
+							[0.0, 1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Canard0",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.03, 0.16, 0.18],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.2263, 0.2263, -0.55],
+						"orientation": [
+							[0.707107, -0.707107, 0.0],
+							[0.707107, 0.707107, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Fin1",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.34, 0.46],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.4, 0.0, 0.82],
+						"orientation": [
+							[0.0, -1.0, 0.0],
+							[1.0, 0.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Canard1",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.03, 0.16, 0.18],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.2263, -0.2263, -0.55],
+						"orientation": [
+							[-0.707107, -0.707107, 0.0],
+							[0.707107, -0.707107, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Fin2",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.34, 0.46],
+				"CFrame": {
+					"CFrame": {
+						"position": [-0.0, -0.4, 0.82],
+						"orientation": [
+							[-1.0, -0.0, 0.0],
+							[0.0, -1.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Canard2",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.03, 0.16, 0.18],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.2263, -0.2263, -0.55],
+						"orientation": [
+							[-0.707107, 0.707107, 0.0],
+							[-0.707107, -0.707107, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Fin3",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.04, 0.34, 0.46],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.4, -0.0, 0.82],
+						"orientation": [
+							[0.0, 1.0, 0.0],
+							[-1.0, 0.0, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		},
+		{
+			"Name": "Canard3",
+			"ClassName": "Part",
+			"Properties": {
+				"Size": [0.03, 0.16, 0.18],
+				"CFrame": {
+					"CFrame": {
+						"position": [0.2263, 0.2263, -0.55],
+						"orientation": [
+							[0.707106, 0.707107, 0.0],
+							[-0.707107, 0.707106, 0.0],
+							[0.0, 0.0, 1.0]
+						]
+					}
+				},
+				"Color": [0.17, 0.18, 0.19],
+				"Material": "Metal",
+				"Anchored": false,
+				"CanCollide": false,
+				"CanTouch": false,
+				"CanQuery": false,
+				"Massless": true,
+				"CastShadow": true,
+				"TopSurface": "Smooth",
+				"BottomSurface": "Smooth"
+			}
+		}
+	]
+}

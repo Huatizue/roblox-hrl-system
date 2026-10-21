@@ -1,0 +1,77 @@
+{
+  "name": "roblox-hrl-system",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "HomingMissile": {
+        "$path": "src/shared"
+      }
+    },
+
+    "ServerScriptService": {
+      "HomingMissile": {
+        "$path": "src/server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "HomingMissile": {
+          "$path": "src/client"
+        }
+      }
+    },
+
+    "StarterPack": {
+      "MissileLauncher": {
+        "$className": "Tool",
+        "$properties": {
+          "RequiresHandle": false,
+          "CanBeDropped": false,
+          "ToolTip": "Rocket launcher: hold click to fire and steer, hold E to retake your last rocket, Q to switch to lock-on"
+        }
+      }
+    },
+
+    "Workspace": {
+      "$properties": {
+        "Gravity": 196.2
+      },
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Locked": true,
+          "Size": [2048, 16, 2048],
+          "Position": [0, -8, 0],
+          "Color": [0.388, 0.373, 0.384],
+          "Material": "Concrete",
+          "TopSurface": "Smooth",
+          "BottomSurface": "Smooth"
+        }
+      },
+      "SpawnLocation": {
+        "$className": "SpawnLocation",
+        "$properties": {
+          "Anchored": true,
+          "Size": [12, 1, 12],
+          "Position": [0, 0.5, 0],
+          "Color": [0.149, 0.149, 0.157],
+          "Material": "DiamondPlate",
+          "Duration": 0,
+          "TopSurface": "Smooth",
+          "BottomSurface": "Smooth"
+        }
+      }
+    },
+
+    "Lighting": {
+      "$properties": {
+        "ClockTime": 15.5,
+        "Brightness": 2.5,
+        "GlobalShadows": true
+      }
+    }
+  }
+}
