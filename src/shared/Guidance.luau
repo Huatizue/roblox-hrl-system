@@ -2,7 +2,7 @@
 
 local Guidance = {}
 
-export type Law = "PurePursuit" | "ProportionalNavigation" | "AugmentedPN"
+export type Law = "PurePursuit" | "ProportionalNavigation" | "AugmentedPN" | "InterceptPath"
 
 export type Input = {
 	missilePosition: Vector3,
@@ -12,6 +12,8 @@ export type Input = {
 	targetAcceleration: Vector3?,
 	navigationConstant: number,
 	pursuitGain: number,
+	pathLookahead: number?,
+	previousTurn: Vector3?,
 }
 
 local EPSILON = 1e-6
@@ -52,6 +54,10 @@ function Guidance.purePursuit(input: Input): Vector3
 
 	if los:Dot(heading) < 0 then
 		local direction = if turnDirection.Magnitude > EPSILON then turnDirection.Unit else anyPerpendicular(heading)
+		local previous = if input.previousTurn then perpendicular(input.previousTurn, heading) else ZERO
+		if previous.Magnitude > EPSILON and (turnDirection.Magnitude < 0.7 or previous:Dot(turnDirection) > 0) then
+			direction = previous.Unit
+		end
 		return direction * speed * input.pursuitGain * 4
 	end
 
@@ -78,13 +84,63 @@ function Guidance.augmentedProportionalNavigation(input: Input): Vector3
 	return command + perpendicular(targetAcceleration, los) * (input.navigationConstant / 2)
 end
 
+function Guidance.interceptPoint(
+	missilePosition: Vector3,
+	missileSpeed: number,
+	targetPosition: Vector3,
+	targetVelocity: Vector3
+): (Vector3, number)
+	local speed = math.max(missileSpeed, 1)
+	local timeToGo = 0
+	for _ = 1, 5 do
+		local point = targetPosition + targetVelocity * timeToGo
+		timeToGo = (point - missilePosition).Magnitude / speed
+	end
+	return targetPosition + targetVelocity * timeToGo, timeToGo
+end
+
+local function bezier(p0: Vector3, p1: Vector3, p2: Vector3, p3: Vector3, t: number): Vector3
+	local u = 1 - t
+	return p0 * (u * u * u) + p1 * (3 * u * u * t) + p2 * (3 * u * t * t) + p3 * (t * t * t)
+end
+
+function Guidance.pathAimPoint(input: Input): Vector3
+	local position = input.missilePosition
+	local speed = input.missileVelocity.Magnitude
+	local intercept = Guidance.interceptPoint(position, speed, input.targetPosition, input.targetVelocity)
+	local offset = intercept - position
+	local distance = offset.Magnitude
+	local lookahead = input.pathLookahead or 40
+	if distance <= lookahead or speed < EPSILON then
+		return intercept
+	end
+	local heading = input.missileVelocity / speed
+	local handle = distance / 3
+	local p1 = position + heading * (handle * (1 + heading:Dot(offset.Unit)) / 2)
+	local p2 = intercept - offset.Unit * handle
+	return bezier(position, p1, p2, intercept, lookahead / distance)
+end
+
+function Guidance.interceptPath(input: Input): Vector3
+	return Guidance.purePursuit({
+		missilePosition = input.missilePosition,
+		missileVelocity = input.missileVelocity,
+		targetPosition = Guidance.pathAimPoint(input),
+		targetVelocity = input.targetVelocity,
+		navigationConstant = input.navigationConstant,
+		pursuitGain = input.pursuitGain,
+		previousTurn = input.previousTurn,
+	})
+end
+
 function Guidance.commandToLineOfSight(
 	missilePosition: Vector3,
 	missileVelocity: Vector3,
 	rayOrigin: Vector3,
 	rayDirection: Vector3,
 	lookahead: number,
-	gain: number
+	gain: number,
+	previousTurn: Vector3?
 ): Vector3
 	local alongRay = math.max((missilePosition - rayOrigin):Dot(rayDirection), 0)
 	local aimPoint = rayOrigin + rayDirection * (alongRay + lookahead)
@@ -95,6 +151,7 @@ function Guidance.commandToLineOfSight(
 		targetVelocity = ZERO,
 		navigationConstant = 0,
 		pursuitGain = gain,
+		previousTurn = previousTurn,
 	})
 end
 
@@ -102,6 +159,7 @@ local LAWS: { [Law]: (Input) -> Vector3 } = {
 	PurePursuit = Guidance.purePursuit,
 	ProportionalNavigation = Guidance.proportionalNavigation,
 	AugmentedPN = Guidance.augmentedProportionalNavigation,
+	InterceptPath = Guidance.interceptPath,
 }
 
 function Guidance.command(law: Law, input: Input): Vector3

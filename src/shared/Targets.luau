@@ -6,6 +6,11 @@ local Config = require(script.Parent.Config)
 
 local Targets = {}
 
+export type VelocitySample = {
+	time: number,
+	position: Vector3,
+}
+
 function Targets.getPosition(target: Instance): Vector3?
 	if target:IsA("BasePart") then
 		return target.Position
@@ -13,6 +18,23 @@ function Targets.getPosition(target: Instance): Vector3?
 		return target:GetPivot().Position
 	end
 	return nil
+end
+
+function Targets.measureVelocity(
+	estimate: Vector3,
+	sample: VelocitySample?,
+	position: Vector3,
+	now: number
+): (Vector3, VelocitySample?)
+	if not sample then
+		return estimate, { time = now, position = position }
+	end
+	local elapsed = now - sample.time
+	if elapsed < Config.TargetVelocityWindow then
+		return estimate, sample
+	end
+	local measured = (position - sample.position) / elapsed
+	return estimate:Lerp(measured, 0.5), { time = now, position = position }
 end
 
 function Targets.getPhysicsVelocity(target: Instance): Vector3?

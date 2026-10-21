@@ -70,8 +70,10 @@ function Warhead.detonate(position: Vector3, owner: Player)
 
 		local health = victim:GetAttribute("Health")
 		if typeof(health) == "number" then
-			victim:SetAttribute("Health", math.max(health - damage, 0))
+			local remaining = if victim:GetAttribute("DestroyOnHit") then 0 else math.max(health - damage, 0)
 			victim:SetAttribute("LastHitBy", owner.UserId)
+			victim:SetAttribute("LastHitPosition", position)
+			victim:SetAttribute("Health", remaining)
 		end
 	end
 end

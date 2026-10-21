@@ -27,6 +27,9 @@ type Rocket = {
 	target: Instance?,
 	targetPosition: Vector3?,
 	targetVelocity: Vector3,
+	velocitySample: Targets.VelocitySample?,
+	assured: boolean,
+	aimOffset: Vector3?,
 	finished: boolean,
 	spawnedAt: number,
 }
@@ -69,6 +72,8 @@ local function guideFor(rocket: Rocket, steered: Rocket?): MissileSim.Guide?
 			position = rocket.targetPosition,
 			velocity = rocket.targetVelocity,
 			visible = true,
+			assured = rocket.assured,
+			aimOffset = rocket.aimOffset,
 		}
 	end
 	if rocket == steered then
@@ -78,7 +83,7 @@ local function guideFor(rocket: Rocket, steered: Rocket?): MissileSim.Guide?
 	return nil
 end
 
-local function sampleTarget(rocket: Rocket, frameDt: number)
+local function sampleTarget(rocket: Rocket)
 	local target = rocket.target
 	if not target or not target.Parent then
 		rocket.target = nil
@@ -88,10 +93,8 @@ local function sampleTarget(rocket: Rocket, frameDt: number)
 	if not position then
 		return
 	end
-	if rocket.targetPosition and frameDt > 0 then
-		local measured = (position - rocket.targetPosition) / frameDt
-		rocket.targetVelocity = rocket.targetVelocity:Lerp(measured, 0.5)
-	end
+	rocket.targetVelocity, rocket.velocitySample =
+		Targets.measureVelocity(rocket.targetVelocity, rocket.velocitySample, position, os.clock())
 	rocket.targetPosition = position
 end
 
@@ -125,6 +128,8 @@ local function onSpawned(
 	origin: Vector3,
 	velocity: Vector3,
 	target: Instance?,
+	assured: boolean,
+	aimOffset: Vector3?,
 	serverTime: number
 )
 	local sim = MissileSim.new(origin, velocity)
@@ -139,6 +144,8 @@ local function onSpawned(
 		target = target,
 		targetPosition = if target then Targets.getPosition(target) else nil,
 		targetVelocity = Vector3.zero,
+		assured = assured,
+		aimOffset = aimOffset,
 		finished = false,
 		spawnedAt = os.clock(),
 	}
@@ -191,7 +198,7 @@ local function onRenderStepped(frameDt: number)
 	local decay = math.exp(-frameDt / Config.CorrectionBlendTime)
 
 	for _, rocket in rockets do
-		sampleTarget(rocket, frameDt)
+		sampleTarget(rocket)
 		for _ = 1, steps do
 			advance(rocket, STEP, steered)
 		end
@@ -199,7 +206,7 @@ local function onRenderStepped(frameDt: number)
 		rocket.visual.root.CFrame = renderCFrame(rocket)
 		RocketVisuals.setMotorBurning(rocket.visual, rocket.sim.alive and rocket.sim.age <= Config.BurnTime)
 
-		if os.clock() - rocket.spawnedAt > Config.MaxLifetime + 3 then
+		if os.clock() - rocket.spawnedAt > Config.MaxLifetime * (if rocket.assured then 3 else 1) + 3 then
 			finish(rocket)
 		end
 	end

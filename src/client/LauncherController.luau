@@ -60,7 +60,6 @@ local function setSteering(active: boolean)
 	end
 	steering = active
 	remotes.SetSteering:FireServer(active)
-	Hud.setSteering(active)
 	if active then
 		aimTimer = 0
 	end
@@ -87,9 +86,9 @@ local function onActivated()
 		lastFireTime = os.clock()
 		remotes.Fire:FireServer("Cursor", ray.Origin, ray.Direction.Unit)
 		refreshSteering()
-	elseif lockCandidate and lockProgress >= 1 then
+	elseif lockCandidate then
 		lastFireTime = os.clock()
-		remotes.Fire:FireServer("Homing", ray.Origin, ray.Direction.Unit, lockCandidate)
+		remotes.Fire:FireServer("Homing", ray.Origin, ray.Direction.Unit, lockCandidate, lockProgress)
 	end
 end
 

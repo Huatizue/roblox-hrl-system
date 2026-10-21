@@ -61,15 +61,13 @@ end
 
 function Hud.setMode(mode: string)
 	if mode == "Cursor" then
-		modeLabel.Text = "CURSOR GUIDANCE"
+		modeLabel.Text = ""
 		hintLabel.Text = "Hold click to fire and steer  ·  Hold E to steer your last rocket  ·  Q: lock-on mode"
 	else
 		modeLabel.Text = "LOCK-ON HOMING"
-		hintLabel.Text = "Aim at a target until locked, then click  ·  Q: cursor mode"
+		hintLabel.Text = "Aim at a target, then click: lock % is the chance to hit  ·  Q: cursor mode"
 	end
 end
-
-function Hud.setSteering(_active: boolean) end
 
 function Hud.setLock(screenPosition: Vector2?, progress: number?)
 	if not screenPosition or not progress then
@@ -84,7 +82,7 @@ function Hud.setLock(screenPosition: Vector2?, progress: number?)
 	lockBox.Size = UDim2.fromOffset(size, size)
 	lockStroke.Color = color
 	lockLabel.TextColor3 = color
-	lockLabel.Text = if locked then "LOCKED" else `{math.floor(progress * 100)}%`
+	lockLabel.Text = if locked then "LOCKED 100%" else `{math.floor(progress * 100)}% HIT`
 end
 
 function Hud.setVisible(visible: boolean)

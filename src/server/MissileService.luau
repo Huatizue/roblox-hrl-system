@@ -22,8 +22,11 @@ type Missile = {
 	target: Instance?,
 	targetPosition: Vector3?,
 	targetVelocity: Vector3,
+	velocitySample: Targets.VelocitySample?,
 	targetVisible: boolean,
 	seekerTimer: number,
+	assured: boolean,
+	aimOffset: Vector3?,
 }
 
 type PlayerState = {
@@ -119,7 +122,17 @@ local function getMuzzlePosition(tool: Tool, head: BasePart, aimDirection: Vecto
 	return head.Position + aimDirection * Config.LaunchForwardOffset
 end
 
-local function onFire(player: Player, mode: any, origin: any, direction: any, target: any)
+local random = Random.new()
+
+local function missOffset(lineOfFire: Vector3): Vector3
+	local side = random:NextUnitVector():Cross(lineOfFire)
+	if side.Magnitude < 1e-3 then
+		side = Vector3.new(0, 1, 0):Cross(lineOfFire)
+	end
+	return side.Unit * Config.MissDistance
+end
+
+local function onFire(player: Player, mode: any, origin: any, direction: any, target: any, lockProgress: any)
 	if mode ~= "Cursor" and mode ~= "Homing" then
 		return
 	end
@@ -160,12 +173,21 @@ local function onFire(player: Player, mode: any, origin: any, direction: any, ta
 	local aimPoint = if hit then hit.Position else aimOrigin + aimDirection * MAX_AIM_DISTANCE
 
 	local launchPosition = getMuzzlePosition(tool, head, aimDirection)
-	if homingTarget then
-		aimPoint = Targets.getPosition(homingTarget) :: Vector3
-	end
 	local launchDirection = aimPoint - launchPosition
 	if launchDirection.Magnitude < 1 then
 		launchDirection = aimDirection
+	end
+
+	local assured = false
+	local aimOffset: Vector3? = nil
+	if homingTarget then
+		local chance = if typeof(lockProgress) == "number" and lockProgress == lockProgress
+			then math.clamp(lockProgress, 0, 1)
+			else 0
+		assured = random:NextNumber() < chance
+		if not assured then
+			aimOffset = missOffset((Targets.getPosition(homingTarget) :: Vector3) - launchPosition)
+		end
 	end
 
 	nextId += 1
@@ -179,6 +201,8 @@ local function onFire(player: Player, mode: any, origin: any, direction: any, ta
 		targetVelocity = Vector3.zero,
 		targetVisible = true,
 		seekerTimer = 0,
+		assured = assured,
+		aimOffset = aimOffset,
 	}
 	missiles[missile.id] = missile
 	table.insert(state.missiles, missile)
@@ -194,6 +218,8 @@ local function onFire(player: Player, mode: any, origin: any, direction: any, ta
 		launchPosition,
 		missile.sim.velocity,
 		homingTarget,
+		assured,
+		aimOffset,
 		workspace:GetServerTimeNow()
 	)
 end
@@ -281,9 +307,9 @@ local function sampleTarget(missile: Missile, frameDt: number, params: RaycastPa
 	local physicsVelocity = Targets.getPhysicsVelocity(target)
 	if physicsVelocity then
 		missile.targetVelocity = physicsVelocity
-	elseif missile.targetPosition and frameDt > 0 then
-		local measured = (position - missile.targetPosition) / frameDt
-		missile.targetVelocity = missile.targetVelocity:Lerp(measured, 0.5)
+	else
+		missile.targetVelocity, missile.velocitySample =
+			Targets.measureVelocity(missile.targetVelocity, missile.velocitySample, position, os.clock())
 	end
 	missile.targetPosition = position
 
@@ -319,6 +345,8 @@ local function stepMissile(missile: Missile, steps: number, frameDt: number)
 				position = targetTo,
 				velocity = missile.targetVelocity,
 				visible = missile.targetVisible,
+				assured = missile.assured,
+				aimOffset = missile.aimOffset,
 			}
 		elseif steered and state and state.aimOrigin and state.aimDirection then
 			guide = { kind = "Ray", origin = state.aimOrigin, direction = state.aimDirection }
@@ -333,7 +361,7 @@ local function stepMissile(missile: Missile, steps: number, frameDt: number)
 			detonate(missile, hit.Position, "Impact")
 			return
 		end
-		if targetFrom and targetTo then
+		if targetFrom and targetTo and not missile.aimOffset then
 			local fuzePoint = MissileSim.fuze(from, to, targetFrom, targetTo, sim.age)
 			if fuzePoint then
 				detonate(missile, fuzePoint, "Proximity")
